@@ -108,6 +108,23 @@ void bind_raylib_structs(sol::state& lua) {
         "zoom", &Camera2D::zoom
     );
 
+    // Camera3D
+    lua.new_usertype<Camera3D>("Camera3D",
+        sol::call_constructor, sol::factories(
+            []() {
+                return Camera3D{Vector3{0.0f, 0.0f, 0.0f}, Vector3{0.0f, 0.0f, 0.0f}, Vector3{0.0f, 0.0f, 0.0f}, 0.0f, 0};
+            },
+            [](Vector3 position, Vector3 target, Vector3 up, float fovy, int type) {
+                return Camera3D{position, target, up, fovy, type};
+            }
+        ),
+        "position", &Camera3D::position,
+        "target", &Camera3D::target,
+        "up", &Camera3D::up,
+        "fovy", &Camera3D::fovy,
+        "projection", &Camera3D::projection
+    );
+
     // Color
     lua.new_usertype<Color>("Color",
         sol::call_constructor, sol::factories(
