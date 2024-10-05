@@ -6,6 +6,9 @@ void bind_raylib_text(sol::state& lua) {
     // Text Namespace
     sol::table text_namespace = lua.create_named_table("Text");
 
+    // Text
+    text_namespace.set_function("Measure", MeasureText);
+
     // TextFormat
     text_namespace.set_function("Format", [](const char* text, sol::variadic_args va) {
         // Extract the variable arguments into a vector

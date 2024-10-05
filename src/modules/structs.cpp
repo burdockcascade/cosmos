@@ -122,8 +122,25 @@ void bind_raylib_structs(sol::state& lua) {
         "target", &Camera3D::target,
         "up", &Camera3D::up,
         "fovy", &Camera3D::fovy,
-        "projection", &Camera3D::projection
+        "projection", &Camera3D::projection,
+        "Update", [](Camera3D& camera, int mode) {
+            UpdateCamera(&camera, mode);
+        },
+        "UpdatePro", [](Camera3D& camera, Vector3 movement, Vector3 rotation, float zoom) {
+            UpdateCameraPro(&camera, movement, rotation, zoom);
+        }
     );
+
+    // Camera Mode
+    lua["CAMERA_CUSTOM"] = CAMERA_CUSTOM;
+    lua["CAMERA_FREE"] = CAMERA_FREE;
+    lua["CAMERA_ORBITAL"] = CAMERA_ORBITAL;
+    lua["CAMERA_FIRST_PERSON"] = CAMERA_FIRST_PERSON;
+    lua["CAMERA_THIRD_PERSON"] = CAMERA_THIRD_PERSON;
+
+    // Camera Projection
+    lua["CAMERA_PERSPECTIVE"] = CAMERA_PERSPECTIVE;
+    lua["CAMERA_ORTHOGRAPHIC"] = CAMERA_ORTHOGRAPHIC;
 
     // Color
     lua.new_usertype<Color>("Color",

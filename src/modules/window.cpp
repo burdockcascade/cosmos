@@ -57,4 +57,13 @@ void bind_raylib_window(sol::state& lua) {
     window_namespace.set_function("BeginMode3D", BeginMode3D);
     window_namespace.set_function("EndMode3D", EndMode3D);
 
+    // Screen Space
+    window_namespace.set_function("GetMouseRay", GetMouseRay);
+    window_namespace.set_function("GetCameraMatrix", GetCameraMatrix);
+    window_namespace.set_function("GetCameraMatrix2D", GetCameraMatrix2D);
+    window_namespace.set_function("GetWorldToScreen", GetWorldToScreen);
+    window_namespace.set_function("GetScreenToWorld2D", GetScreenToWorld2D);
+    window_namespace.set_function("GetWorldToScreenEx", GetWorldToScreenEx);
+    window_namespace.set_function("GetWorldToScreen2D", GetWorldToScreen2D);
+
 }
