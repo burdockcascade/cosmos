@@ -138,7 +138,10 @@ void bind_raylib_structs(sol::state& lua) {
         "r", &Color::r,
         "g", &Color::g,
         "b", &Color::b,
-        "a", &Color::a
+        "a", &Color::a,
+        "Random", []() {
+            return Color{static_cast<unsigned char>(GetRandomValue(0, 255)), static_cast<unsigned char>(GetRandomValue(0, 255)), static_cast<unsigned char>(GetRandomValue(0, 255)), static_cast<unsigned char>(255)};
+        }
     );
 
     lua["COLOR_LIGHTGRAY"] = LIGHTGRAY;
