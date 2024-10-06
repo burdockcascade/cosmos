@@ -23,7 +23,7 @@ function main()
 
     while not Window.ShouldClose() do
     
-        camera:Update(CAMERA_THIRD_PERSON)
+        Window.UpdateCamera(camera, CAMERA_THIRD_PERSON);
         cubeScreenPosition = Window.GetWorldToScreen(Vector3(cubePosition.x, cubePosition.y + 2.5, cubePosition.z), camera);
 
         Window.BeginDrawing();

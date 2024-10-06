@@ -66,4 +66,7 @@ void bind_raylib_window(sol::state& lua) {
     window_namespace.set_function("GetWorldToScreenEx", GetWorldToScreenEx);
     window_namespace.set_function("GetWorldToScreen2D", GetWorldToScreen2D);
 
+    // Camera
+    window_namespace.set_function("UpdateCamera", UpdateCamera);
+    window_namespace.set_function("UpdateCameraPro", UpdateCameraPro);
 }
