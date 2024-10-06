@@ -114,6 +114,12 @@ void bind_raylib_structs(sol::state& lua) {
             []() {
                 return Camera3D{Vector3{0.0f, 0.0f, 0.0f}, Vector3{0.0f, 0.0f, 0.0f}, Vector3{0.0f, 0.0f, 0.0f}, 0.0f, 0};
             },
+            [](Vector3 position, Vector3 target, Vector3 up) {
+                return Camera3D{position, target, up, 0.0f, 0};
+            },
+            [](Vector3 position, Vector3 target, Vector3 up, float fovy) {
+                return Camera3D{position, target, up, fovy, 0};
+            },
             [](Vector3 position, Vector3 target, Vector3 up, float fovy, int type) {
                 return Camera3D{position, target, up, fovy, type};
             }
@@ -122,13 +128,7 @@ void bind_raylib_structs(sol::state& lua) {
         "target", &Camera3D::target,
         "up", &Camera3D::up,
         "fovy", &Camera3D::fovy,
-        "projection", &Camera3D::projection,
-        "Update", [](Camera3D& camera, int mode) {
-            UpdateCamera(&camera, mode);
-        },
-        "UpdatePro", [](Camera3D& camera, Vector3 movement, Vector3 rotation, float zoom) {
-            UpdateCameraPro(&camera, movement, rotation, zoom);
-        }
+        "projection", &Camera3D::projection
     );
 
     // Camera Mode
