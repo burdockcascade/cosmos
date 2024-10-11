@@ -35,7 +35,25 @@ int main(const int argc, char* argv[]) {
 
     bind_raylib(lua);
 
-    lua.script_file(fileToLoad);
+    // load file
+    sol::load_result result = lua.load_file(fileToLoad);
+
+    // check for errors
+    if (!result.valid()) {
+        sol::error err = result;
+        TraceLog(LOG_ERROR, "Error loading Lua file: %s", err.what());
+        return 1;
+    }
+
+    // run the script
+    sol::protected_function_result scriptResult = result();
+
+    // check for errors
+    if (!scriptResult.valid()) {
+        sol::error err = scriptResult;
+        TraceLog(LOG_ERROR, "Error running Lua file: %s", err.what());
+        return 1;
+    }
     
     return 0;
 }
