@@ -55,9 +55,10 @@ void bind_math(sol::state& lua) {
     });
 
     // Random
-    math_namespace.set_function("GetRandomValue", []() {
-        return GetRandomValue(0, 100);
+    math_namespace.set_function("GetRandomValue", [](float min, float max) {
+        return GetRandomValue(min, max);
     });
+    
     math_namespace.set_function("SetRandomSeed", [](int seed) {
         SetRandomSeed(seed);
     });

@@ -5,7 +5,7 @@ function main()
     local screenWidth = 800;
     local screenHeight = 450;
 
-    Window.Init(screenWidth, screenHeight, "raylib [core] example - 2d camera");
+    Window.Init(screenWidth, screenHeight, "2d camera");
 
     local player = Rectangle( 400, 280, 40, 40 );
     buildings = {}
@@ -22,7 +22,7 @@ function main()
 
         spacing = spacing + buildings[i].width
 
-        buildColors[i] = Color.Random()
+        buildColors[i] = Color( Math.GetRandomValue(200, 240), Math.GetRandomValue(200, 240), Math.GetRandomValue(200, 250), 255 )
     end
 
     local camera = Camera2D()
