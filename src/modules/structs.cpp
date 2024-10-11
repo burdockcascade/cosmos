@@ -158,6 +158,9 @@ void bind_raylib_structs(sol::state& lua) {
         "a", &Color::a,
         "Random", []() {
             return Color{static_cast<unsigned char>(GetRandomValue(0, 255)), static_cast<unsigned char>(GetRandomValue(0, 255)), static_cast<unsigned char>(GetRandomValue(0, 255)), static_cast<unsigned char>(255)};
+        },
+        "Fade", [](Color color, float alpha) {
+            return Fade(color, alpha);
         }
     );
 
