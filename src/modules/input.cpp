@@ -162,6 +162,7 @@ void bind_raylib_input(sol::state& lua) {
     input_namespace.set_function("IsCursorHidden", IsCursorHidden);
     input_namespace.set_function("EnableCursor", EnableCursor); 
     input_namespace.set_function("DisableCursor", DisableCursor);
+    input_namespace.set_function("GetMouseRay", GetMouseRay);
 
     // Gamepad
     input_namespace.set_function("IsGamepadAvailable", IsGamepadAvailable);

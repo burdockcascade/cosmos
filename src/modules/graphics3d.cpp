@@ -10,6 +10,7 @@ void bind_raylib_graphics3d(sol::state& lua) {
     g3d.set_function("DrawCube", DrawCube);
     g3d.set_function("DrawCubeWires", DrawCubeWires);
     g3d.set_function("DrawGrid", DrawGrid);
+    g3d.set_function("DrawRay", DrawRay);
 
 
 }
