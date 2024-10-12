@@ -12,6 +12,7 @@ void bind_raylib_window(sol::state& lua) {
     window_namespace.set_function("ClearBackground", ClearBackground);
     window_namespace.set_function("ShouldClose", WindowShouldClose);
     window_namespace.set_function("SetTargetFPS", SetTargetFPS);
+    window_namespace.set_function("SetExitKey", SetExitKey);
 
     // State
     window_namespace.set_function("IsReady", IsWindowReady);
