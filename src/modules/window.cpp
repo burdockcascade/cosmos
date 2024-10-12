@@ -31,6 +31,10 @@ void bind_raylib_window(sol::state& lua) {
     window_namespace.set_function("Restore", RestoreWindow);
     window_namespace.set_function("TakeScreenshot", TakeScreenshot);
 
+    // Screen
+    window_namespace.set_function("GetScreenWidth", GetScreenWidth);
+    window_namespace.set_function("GetScreenHeight", GetScreenHeight);
+
     // Monitor
     window_namespace.set_function("GetCurrentMonitor", GetCurrentMonitor);
     window_namespace.set_function("GetMonitorCount", GetMonitorCount);
@@ -57,6 +61,8 @@ void bind_raylib_window(sol::state& lua) {
     window_namespace.set_function("EndMode2D", EndMode2D);
     window_namespace.set_function("BeginMode3D", BeginMode3D);
     window_namespace.set_function("EndMode3D", EndMode3D);
+    window_namespace.set_function("BeginScissorMode", BeginScissorMode);
+    window_namespace.set_function("EndScissorMode", EndScissorMode);
 
     // Screen Space
     window_namespace.set_function("GetMouseRay", GetMouseRay);
