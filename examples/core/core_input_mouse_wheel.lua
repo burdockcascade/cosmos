@@ -16,10 +16,10 @@ while not Window.ShouldClose() do
 
         Window.ClearBackground(COLOR_RAYWHITE)
 
-        Graphics2D.DrawRectangle(screenWidth/2 - 40, boxPositionY, 80, 80, COLOR_MAROON)
+        Draw.Rectangle(screenWidth/2 - 40, boxPositionY, 80, 80, COLOR_MAROON)
 
-        Graphics2D.DrawText("Use mouse wheel to move the cube up and down!", 10, 10, 20, COLOR_GRAY)
-        Graphics2D.DrawText(Text.Format("Box position Y: %03i", boxPositionY), 10, 40, 10, COLOR_DARKGRAY)
+        Draw.Text("Use mouse wheel to move the cube up and down!", 10, 10, 20, COLOR_GRAY)
+        Draw.Text(Text.Format("Box position Y: %03i", boxPositionY), 10, 40, 10, COLOR_DARKGRAY)
 
     Window.EndDrawing()
 end

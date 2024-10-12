@@ -25,15 +25,15 @@ while not Window.ShouldClose() do
             Window.BeginScissorMode(scissorArea.x, scissorArea.y, scissorArea.width, scissorArea.height)
         end
 
-        Graphics2D.DrawRectangle(0, 0, Window.GetScreenWidth(), Window.GetScreenHeight(), COLOR_RED)
-        Graphics2D.DrawText("Move the mouse around to reveal this text!", 190, 200, 20, COLOR_LIGHTGRAY)
+        Draw.Rectangle(0, 0, Window.GetScreenWidth(), Window.GetScreenHeight(), COLOR_RED)
+        Draw.Text("Move the mouse around to reveal this text!", 190, 200, 20, COLOR_LIGHTGRAY)
 
         if (scissorMode) then
             Window.EndScissorMode()
         end
 
-        Graphics2D.DrawRectangleLinesEx(scissorArea, 1, COLOR_BLACK)
-        Graphics2D.DrawText("Press S to toggle scissor test", 10, 10, 20, COLOR_BLACK)
+        Draw.RectangleLinesEx(scissorArea, 1, COLOR_BLACK)
+        Draw.Text("Press S to toggle scissor test", 10, 10, 20, COLOR_BLACK)
 
     Window.EndDrawing()
 

@@ -27,9 +27,9 @@
 
             Window.ClearBackground(COLOR_RAYWHITE)
 
-            Graphics2D.DrawCircleV(ballPosition, 40, ballColor)
+            Draw.CircleV(ballPosition, 40, ballColor)
 
-            Graphics2D.DrawText("move ball with mouse and click mouse button to change color", 10, 10, 20, COLOR_DARKGRAY)
+            Draw.Text("move ball with mouse and click mouse button to change color", 10, 10, 20, COLOR_DARKGRAY)
 
         Window.EndDrawing()
 

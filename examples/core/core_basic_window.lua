@@ -9,7 +9,7 @@ function main()
     while not Window.ShouldClose() do
         Window.ClearBackground(COLOR_RAYWHITE)
         Window.BeginDrawing()
-            Graphics2D.DrawText("Congrats! You created your first window!", 190, 200, 20, COLOR_DARKGRAY)
+            Draw.Text("Congrats! You created your first window!", 190, 200, 20, COLOR_DARKGRAY)
         Window.EndDrawing()
     end
 

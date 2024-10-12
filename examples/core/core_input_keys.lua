@@ -20,9 +20,9 @@ function main()
 
             Window.ClearBackground(COLOR_RAYWHITE)
 
-            Graphics2D.DrawText("move the ball with arrow keys", 10, 10, 20, COLOR_DARKGRAY)
+            Draw.Text("move the ball with arrow keys", 10, 10, 20, COLOR_DARKGRAY)
 
-            Graphics2D.DrawCircleV(ballPosition, 50, COLOR_MAROON)
+            Draw.CircleV(ballPosition, 50, COLOR_MAROON)
 
         Window.EndDrawing()
 

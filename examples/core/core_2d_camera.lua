@@ -76,35 +76,35 @@ function main()
 
             Window.BeginMode2D(camera);
 
-                Graphics2D.DrawRectangle(-6000, 320, 13000, 8000, COLOR_DARKGRAY);
+                Draw.Rectangle(-6000, 320, 13000, 8000, COLOR_DARKGRAY);
 
                 for i = 1, MAX_BUILDINGS do
-                    Graphics2D.DrawRectangleRec(buildings[i], buildColors[i]);
+                    Draw.RectangleRec(buildings[i], buildColors[i]);
                 end
 
-                Graphics2D.DrawRectangleRec(player, COLOR_RED);
+                Draw.RectangleRec(player, COLOR_RED);
 
-                Graphics2D.DrawLine(camera.target.x, -screenHeight*10, camera.target.x, screenHeight*10, COLOR_GREEN);
-                Graphics2D.DrawLine(-screenWidth*10, camera.target.y, screenWidth*10, camera.target.y, COLOR_GREEN);
+                Draw.Line(camera.target.x, -screenHeight*10, camera.target.x, screenHeight*10, COLOR_GREEN);
+                Draw.Line(-screenWidth*10, camera.target.y, screenWidth*10, camera.target.y, COLOR_GREEN);
 
             Window.EndMode2D();
 
-            Graphics2D.DrawText("SCREEN AREA", 640, 10, 20, COLOR_RED);
+            Draw.Text("SCREEN AREA", 640, 10, 20, COLOR_RED);
 
-            Graphics2D.DrawRectangle(0, 0, screenWidth, 5, COLOR_RED);
-            Graphics2D.DrawRectangle(0, 5, 5, screenHeight - 10, COLOR_RED);
-            Graphics2D.DrawRectangle(screenWidth - 5, 5, 5, screenHeight - 10, COLOR_RED);
-            Graphics2D.DrawRectangle(0, screenHeight - 5, screenWidth, 5, COLOR_RED);
+            Draw.Rectangle(0, 0, screenWidth, 5, COLOR_RED);
+            Draw.Rectangle(0, 5, 5, screenHeight - 10, COLOR_RED);
+            Draw.Rectangle(screenWidth - 5, 5, 5, screenHeight - 10, COLOR_RED);
+            Draw.Rectangle(0, screenHeight - 5, screenWidth, 5, COLOR_RED);
 
-            --Graphics2D.DrawRectangle( 10, 10, 250, 113, Fade(SKYBLUE, 0.5));
-            Graphics2D.DrawRectangle( 10, 10, 250, 113, COLOR_SKYBLUE, 0.5);
-            Graphics2D.DrawRectangleLines( 10, 10, 250, 113, COLOR_BLUE);
+            --Draw.Rectangle( 10, 10, 250, 113, Fade(SKYBLUE, 0.5));
+            Draw.Rectangle( 10, 10, 250, 113, COLOR_SKYBLUE, 0.5);
+            Draw.RectangleLines( 10, 10, 250, 113, COLOR_BLUE);
 
-            Graphics2D.DrawText("Free 2d camera controls:", 20, 20, 10, COLOR_BLACK);
-            Graphics2D.DrawText("- Right/Left to move Offset", 40, 40, 10, COLOR_DARKGRAY);
-            Graphics2D.DrawText("- Mouse Wheel to Zoom in-out", 40, 60, 10, COLOR_DARKGRAY);
-            Graphics2D.DrawText("- A / S to Rotate", 40, 80, 10, COLOR_DARKGRAY);
-            Graphics2D.DrawText("- R to reset Zoom and Rotation", 40, 100, 10, COLOR_DARKGRAY);
+            Draw.Text("Free 2d camera controls:", 20, 20, 10, COLOR_BLACK);
+            Draw.Text("- Right/Left to move Offset", 40, 40, 10, COLOR_DARKGRAY);
+            Draw.Text("- Mouse Wheel to Zoom in-out", 40, 60, 10, COLOR_DARKGRAY);
+            Draw.Text("- A / S to Rotate", 40, 80, 10, COLOR_DARKGRAY);
+            Draw.Text("- R to reset Zoom and Rotation", 40, 100, 10, COLOR_DARKGRAY);
 
         Window.EndDrawing();
     end

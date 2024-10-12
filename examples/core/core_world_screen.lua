@@ -29,15 +29,15 @@ while not Window.ShouldClose() do
         Window.ClearBackground(COLOR_RAYWHITE)
 
         Window.BeginMode3D(camera)
-            Graphics3D.DrawCube(cubePosition, 2.0, 2.0, 2.0, COLOR_RED)
-            Graphics3D.DrawCubeWires(cubePosition, 2.0, 2.0, 2.0, COLOR_MAROON)
-            Graphics3D.DrawGrid(10, 1.0)
+            Draw.Cube(cubePosition, 2.0, 2.0, 2.0, COLOR_RED)
+            Draw.CubeWires(cubePosition, 2.0, 2.0, 2.0, COLOR_MAROON)
+            Draw.Grid(10, 1.0)
         Window.EndMode3D()
 
-        Graphics2D.DrawText("Enemy: 100 / 100", cubeScreenPosition.x - Text.Measure("Enemy: 100/100", 20)/2, cubeScreenPosition.y, 20, COLOR_BLACK)
+        Draw.Text("Enemy: 100 / 100", cubeScreenPosition.x - Text.Measure("Enemy: 100/100", 20)/2, cubeScreenPosition.y, 20, COLOR_BLACK)
 
-        Graphics2D.DrawText(Text.Format("Cube position in screen space coordinates: [%i, %i]", cubeScreenPosition.x, cubeScreenPosition.y), 10, 10, 20, COLOR_LIME)
-        Graphics2D.DrawText("Text 2d should be always on top of the cube", 10, 40, 20, COLOR_GRAY)
+        Draw.Text(Text.Format("Cube position in screen space coordinates: [%i, %i]", cubeScreenPosition.x, cubeScreenPosition.y), 10, 10, 20, COLOR_LIME)
+        Draw.Text("Text 2d should be always on top of the cube", 10, 40, 20, COLOR_GRAY)
 
     Window.EndDrawing()
 
