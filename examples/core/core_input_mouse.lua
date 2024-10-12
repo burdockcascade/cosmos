@@ -1,4 +1,3 @@
-function main()
 
     local screenWidth = 800
     local screenHeight = 450
@@ -14,7 +13,7 @@ function main()
 
     while not Window.ShouldClose() do
 
-        ballPosition = Input.GetMousePosition();
+        ballPosition = Input.GetMousePosition()
 
         if (Input.IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) then ballColor = COLOR_MAROON
         elseif (Input.IsMouseButtonPressed(MOUSE_BUTTON_MIDDLE)) then ballColor = COLOR_LIME
@@ -24,7 +23,7 @@ function main()
         elseif (Input.IsMouseButtonPressed(MOUSE_BUTTON_FORWARD)) then ballColor = COLOR_ORANGE
         elseif (Input.IsMouseButtonPressed(MOUSE_BUTTON_BACK)) then ballColor = COLOR_BEIGE end
 
-        Window.BeginDrawing();
+        Window.BeginDrawing()
 
             Window.ClearBackground(COLOR_RAYWHITE)
 
@@ -36,8 +35,6 @@ function main()
 
     end
 
-    Window.Close();
+    Window.Close()
 
-end
 
-main()

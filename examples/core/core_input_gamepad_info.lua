@@ -43,5 +43,5 @@ function main()
     end
 
     CloseWindow();
-    
+
 end

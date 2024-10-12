@@ -34,7 +34,7 @@ function main()
     Window.SetTargetFPS(60);
 
     -- Main game loop
-    while not Window.ShouldClose() do      
+    while not Window.ShouldClose() do
 
         --[[ Update ]]--------------------------------------------------------------------
 
@@ -109,7 +109,6 @@ function main()
         Window.EndDrawing();
     end
 
-    --[[ De-Initialization ]]----------------------------------------------------------
     Window.Close();
 
     return 0;

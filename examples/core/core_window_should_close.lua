@@ -3,10 +3,10 @@ local screenHeight = 450
 
 Window.Init(screenWidth, screenHeight, "window should close")
 
-Window.SetExitKey(KEY_NULL)       
+Window.SetExitKey(KEY_NULL)
 
 local exitWindowRequested = false
-local exitWindow = false  
+local exitWindow = false
 Window.SetTargetFPS(60)
 
 while not exitWindow do
@@ -14,7 +14,7 @@ while not exitWindow do
     if Window.ShouldClose() or Input.IsKeyPressed(KEY_ESCAPE) then
             exitWindowRequested = true
     end
-    
+
     if (exitWindowRequested) then
         if Input.IsKeyPressed(KEY_Y) then
             exitWindow = true
@@ -38,5 +38,5 @@ while not exitWindow do
 
 end
 
-Window.Close()      
+Window.Close()
 
