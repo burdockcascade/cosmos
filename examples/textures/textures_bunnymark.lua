@@ -45,22 +45,21 @@ function main(void)
             end
         end
 
+        Window.ClearBackground(COLOR_RAYWHITE)
 
-        Window.BeginDrawing()
-
-            Window.ClearBackground(COLOR_RAYWHITE)
+        Graphics.BeginDrawing()
 
             for i = 1, #bunnies do
-                Texture2D.Draw(texBunny, bunnies[i].position.x, bunnies[i].position.y, bunnies[i].color)
+                Graphics.DrawTexture(texBunny, bunnies[i].position.x, bunnies[i].position.y, bunnies[i].color)
             end
 
-            Graphics2D.DrawRectangle(0, 0, screenWidth, 40, COLOR_BLACK)
-            Graphics2D.DrawText(Text.Format("bunnies: %i", #bunnies), 120, 10, 20, COLOR_GREEN) -- fixme: numbers are not working
-            Graphics2D.DrawText(Text.Format("batched draw calls: %i", 1 + #bunnies/MAX_BATCH_ELEMENTS), 320, 10, 20, COLOR_MAROON)
+            Graphics.DrawRectangle(0, 0, screenWidth, 40, COLOR_BLACK)
+            Graphics.DrawText(Text.Format("bunnies: %i", #bunnies), 120, 10, 20, COLOR_GREEN) -- fixme: numbers are not working
+            Graphics.DrawText(Text.Format("batched draw calls: %i", 1 + #bunnies/MAX_BATCH_ELEMENTS), 320, 10, 20, COLOR_MAROON)
 
-            Graphics2D.DrawFPS(10, 10)
+            Graphics.DrawFPS(10, 10)
 
-        Window.EndDrawing()
+        Graphics.EndDrawing()
 
     end
 

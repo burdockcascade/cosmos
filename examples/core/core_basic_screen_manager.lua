@@ -37,25 +37,25 @@ function main()
             end
         end
 
-        Window.BeginDrawing()
+        Graphics.BeginDrawing()
 
-        Window.ClearBackground(COLOR_RAYWHITE)
+            Window.ClearBackground(COLOR_RAYWHITE)
 
-        if currentScreen == LOGO then
-            Draw.Text("LOGO SCREEN", 20, 20, 40, COLOR_LIGHTGRAY)
-            Draw.Text("WAIT for 2 SECONDS...", 290, 220, 20, COLOR_GRAY)
-        elseif currentScreen == TITLE then
-            Draw.Text("TITLE SCREEN", 20, 20, 40, COLOR_DARKGREEN)
-            Draw.Text("PRESS ENTER or TAP to JUMP to GAMEPLAY SCREEN", 120, 220, 20, COLOR_DARKGREEN)
-        elseif currentScreen == GAMEPLAY then
-            Draw.Text("GAMEPLAY SCREEN", 20, 20, 40, COLOR_MAROON)
-            Draw.Text("PRESS ENTER or TAP to JUMP to ENDING SCREEN", 130, 220, 20, COLOR_MAROON)
-        elseif currentScreen == ENDING then
-            Draw.Text("ENDING SCREEN", 20, 20, 40, COLOR_DARKBLUE)
-            Draw.Text("PRESS ENTER or TAP to RETURN to TITLE SCREEN", 120, 220, 20, COLOR_DARKBLUE)
-        end
+            if currentScreen == LOGO then
+                Graphics.DrawText("LOGO SCREEN", 20, 20, 40, COLOR_LIGHTGRAY)
+                Graphics.DrawText("WAIT for 2 SECONDS...", 290, 220, 20, COLOR_GRAY)
+            elseif currentScreen == TITLE then
+                Graphics.DrawText("TITLE SCREEN", 20, 20, 40, COLOR_DARKGREEN)
+                Graphics.DrawText("PRESS ENTER or TAP to JUMP to GAMEPLAY SCREEN", 120, 220, 20, COLOR_DARKGREEN)
+            elseif currentScreen == GAMEPLAY then
+                Graphics.DrawText("GAMEPLAY SCREEN", 20, 20, 40, COLOR_MAROON)
+                Graphics.DrawText("PRESS ENTER or TAP to JUMP to ENDING SCREEN", 130, 220, 20, COLOR_MAROON)
+            elseif currentScreen == ENDING then
+                Graphics.DrawText("ENDING SCREEN", 20, 20, 40, COLOR_DARKBLUE)
+                Graphics.DrawText("PRESS ENTER or TAP to RETURN to TITLE SCREEN", 120, 220, 20, COLOR_DARKBLUE)
+            end
 
-        Window.EndDrawing()
+        Graphics.EndDrawing()
 
     end
 

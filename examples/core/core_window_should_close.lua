@@ -23,18 +23,18 @@ while not exitWindow do
         end
     end
 
-    Window.BeginDrawing()
+    Graphics.BeginDrawing()
 
         Window.ClearBackground(COLOR_RAYWHITE)
 
         if (exitWindowRequested) then
-            Draw.Rectangle(0, 100, screenWidth, 200, COLOR_BLACK)
-            Draw.Text("Are you sure you want to exit program? [Y/N]", 40, 180, 30, COLOR_WHITE)
+            Graphics.DrawRectangle(0, 100, screenWidth, 200, COLOR_BLACK)
+            Graphics.DrawText("Are you sure you want to exit program? [Y/N]", 40, 180, 30, COLOR_WHITE)
         else
-            Draw.Text("Try to close the window to get confirmation message!", 120, 200, 20, COLOR_LIGHTGRAY)
+            Graphics.DrawText("Try to close the window to get confirmation message!", 120, 200, 20, COLOR_LIGHTGRAY)
         end
 
-    Window.EndDrawing()
+    Graphics.EndDrawing()
 
 end
 

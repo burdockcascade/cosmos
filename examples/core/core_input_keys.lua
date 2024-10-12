@@ -16,15 +16,15 @@ function main()
         if (Input.IsKeyDown(KEY_UP)) then ballPosition.y = ballPosition.y - 2.0 end
         if (Input.IsKeyDown(KEY_DOWN)) then ballPosition.y = ballPosition.y + 2.0 end
 
-        Window.BeginDrawing()
+        Graphics.BeginDrawing()
 
             Window.ClearBackground(COLOR_RAYWHITE)
 
-            Draw.Text("move the ball with arrow keys", 10, 10, 20, COLOR_DARKGRAY)
+            Graphics.DrawText("move the ball with arrow keys", 10, 10, 20, COLOR_DARKGRAY)
 
-            Draw.CircleV(ballPosition, 50, COLOR_MAROON)
+            Graphics.DrawCircleV(ballPosition, 50, COLOR_MAROON)
 
-        Window.EndDrawing()
+        Graphics.EndDrawing()
 
     end
 

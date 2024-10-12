@@ -12,16 +12,16 @@ while not Window.ShouldClose() do
 
     boxPositionY = boxPositionY - (Input.GetMouseWheelMove() * scrollSpeed)
 
-    Window.BeginDrawing()
+    Graphics.BeginDrawing()
 
         Window.ClearBackground(COLOR_RAYWHITE)
 
-        Draw.Rectangle(screenWidth/2 - 40, boxPositionY, 80, 80, COLOR_MAROON)
+        Graphics.DrawRectangle(screenWidth/2 - 40, boxPositionY, 80, 80, COLOR_MAROON)
 
-        Draw.Text("Use mouse wheel to move the cube up and down!", 10, 10, 20, COLOR_GRAY)
-        Draw.Text(Text.Format("Box position Y: %03i", boxPositionY), 10, 40, 10, COLOR_DARKGRAY)
+        Graphics.DrawText("Use mouse wheel to move the cube up and down!", 10, 10, 20, COLOR_GRAY)
+        Graphics.DrawText(Text.Format("Box position Y: %03i", boxPositionY), 10, 40, 10, COLOR_DARKGRAY)
 
-    Window.EndDrawing()
+    Graphics.EndDrawing()
 end
 
 Window.Close()

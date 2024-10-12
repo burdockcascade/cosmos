@@ -84,72 +84,72 @@ function main(void)
         -- For advance camera controls, it's reecommended to compute camera movement manually
         Window.UpdateCamera(camera, cameraMode)
 
-        Window.BeginDrawing()
+        Graphics.BeginDrawing()
 
             Window.ClearBackground(COLOR_RAYWHITE)
 
-            Window.BeginMode3D(camera)
+            Graphics.BeginMode3D(camera)
 
-                Draw.Plane(Vector3( 0.0, 0.0, 0.0 ), Vector2( 32.0, 32.0 ), COLOR_LIGHTGRAY)
-                Draw.Cube(Vector3( -16.0, 2.5, 0.0 ), 1.0, 5.0, 32.0, COLOR_BLUE)
-                Draw.Cube(Vector3( 16.0, 2.5, 0.0 ), 1.0, 5.0, 32.0, COLOR_LIME)
-                Draw.Cube(Vector3( 0.0, 2.5, 16.0 ), 32.0, 5.0, 1.0, COLOR_GOLD)
+                Graphics.DrawPlane(Vector3( 0.0, 0.0, 0.0 ), Vector2( 32.0, 32.0 ), COLOR_LIGHTGRAY)
+                Graphics.DrawCube(Vector3( -16.0, 2.5, 0.0 ), 1.0, 5.0, 32.0, COLOR_BLUE)
+                Graphics.DrawCube(Vector3( 16.0, 2.5, 0.0 ), 1.0, 5.0, 32.0, COLOR_LIME)
+                Graphics.DrawCube(Vector3( 0.0, 2.5, 16.0 ), 32.0, 5.0, 1.0, COLOR_GOLD)
 
                 -- Draw cubes for MAX_COLUMNS
                 for i = 0, MAX_COLUMNS - 1 do
-                    Draw.Cube(positions[i], 2.0, heights[i], 2.0, colors[i])
-                    Draw.CubeWires(positions[i], 2.0, heights[i], 2.0, COLOR_MAROON)
+                    Graphics.DrawCube(positions[i], 2.0, heights[i], 2.0, colors[i])
+                    Graphics.DrawCubeWires(positions[i], 2.0, heights[i], 2.0, COLOR_MAROON)
                 end
 
                 -- Draw player cube
                 if (cameraMode == CAMERA_THIRD_PERSON) then
-                    Draw.Cube(camera.target, 0.5, 0.5, 0.5, COLOR_PURPLE)
-                    Draw.CubeWires(camera.target, 0.5, 0.5, 0.5, COLOR_DARKPURPLE)
+                    Graphics.DrawCube(camera.target, 0.5, 0.5, 0.5, COLOR_PURPLE)
+                    Graphics.DrawCubeWires(camera.target, 0.5, 0.5, 0.5, COLOR_DARKPURPLE)
                 end
 
-            Window.EndMode3D()
+            Graphics.EndMode3D()
 
             -- Draw info boxes
-            Draw.Rectangle(5, 5, 330, 100, COLOR_SKYBLUE, 0.5) -- fade
-            Draw.RectangleLines(5, 5, 330, 100, COLOR_BLUE)
+            Graphics.DrawRectangle(5, 5, 330, 100, COLOR_SKYBLUE, 0.5) -- fade
+            Graphics.DrawRectangleLines(5, 5, 330, 100, COLOR_BLUE)
 
-            Draw.Text("Camera controls:", 15, 15, 10, COLOR_BLACK)
-            Draw.Text("- Move keys: W, A, S, D, Space, Left-Ctrl", 15, 30, 10, COLOR_BLACK)
-            Draw.Text("- Look around: arrow keys or mouse", 15, 45, 10, COLOR_BLACK)
-            Draw.Text("- Camera mode keys: 1, 2, 3, 4", 15, 60, 10, COLOR_BLACK)
-            Draw.Text("- Zoom keys: num-plus, num-minus or mouse scroll", 15, 75, 10, COLOR_BLACK)
-            Draw.Text("- Camera projection key: P", 15, 90, 10, COLOR_BLACK)
+            Graphics.DrawText("Camera controls:", 15, 15, 10, COLOR_BLACK)
+            Graphics.DrawText("- Move keys: W, A, S, D, Space, Left-Ctrl", 15, 30, 10, COLOR_BLACK)
+            Graphics.DrawText("- Look around: arrow keys or mouse", 15, 45, 10, COLOR_BLACK)
+            Graphics.DrawText("- Camera mode keys: 1, 2, 3, 4", 15, 60, 10, COLOR_BLACK)
+            Graphics.DrawText("- Zoom keys: num-plus, num-minus or mouse scroll", 15, 75, 10, COLOR_BLACK)
+            Graphics.DrawText("- Camera projection key: P", 15, 90, 10, COLOR_BLACK)
 
-            Draw.Rectangle(600, 5, 195, 100, COLOR_SKYBLUE, 0.5) -- fade
-            Draw.RectangleLines(600, 5, 195, 100, COLOR_BLUE)
+            Graphics.DrawRectangle(600, 5, 195, 100, COLOR_SKYBLUE, 0.5) -- fade
+            Graphics.DrawRectangleLines(600, 5, 195, 100, COLOR_BLUE)
 
-            Draw.Text("Camera status:", 610, 15, 10, COLOR_BLACK)
+            Graphics.DrawText("Camera status:", 610, 15, 10, COLOR_BLACK)
 
             if (cameraMode == CAMERA_FREE) then
-                Draw.Text("- FREE camera mode", 610, 30, 10, COLOR_BLACK)
+                Graphics.DrawText("- FREE camera mode", 610, 30, 10, COLOR_BLACK)
             elseif (cameraMode == CAMERA_FIRST_PERSON) then
-                Draw.Text("- FIRST_PERSON camera mode", 610, 30, 10, COLOR_BLACK)
+                Graphics.DrawText("- FIRST_PERSON camera mode", 610, 30, 10, COLOR_BLACK)
             elseif (cameraMode == CAMERA_THIRD_PERSON) then
-                Draw.Text("- THIRD_PERSON camera mode", 610, 30, 10, COLOR_BLACK)
+                Graphics.DrawText("- THIRD_PERSON camera mode", 610, 30, 10, COLOR_BLACK)
             elseif (cameraMode == CAMERA_ORBITAL) then
-                Draw.Text("- ORBITAL camera mode", 610, 30, 10, COLOR_BLACK)
+                Graphics.DrawText("- ORBITAL camera mode", 610, 30, 10, COLOR_BLACK)
             else
-                Draw.Text("- CUSTOM camera mode", 610, 30, 10, COLOR_BLACK)
+                Graphics.DrawText("- CUSTOM camera mode", 610, 30, 10, COLOR_BLACK)
             end
 
             if (camera.projection == CAMERA_PERSPECTIVE) then
-                Draw.Text("- Perspective PROJECTION", 610, 45, 10, COLOR_BLACK)
+                Graphics.DrawText("- Perspective PROJECTION", 610, 45, 10, COLOR_BLACK)
             elseif (camera.projection == CAMERA_ORTHOGRAPHIC) then
-                Draw.Text("- Orthographic PROJECTION", 610, 45, 10, COLOR_BLACK)
+                Graphics.DrawText("- Orthographic PROJECTION", 610, 45, 10, COLOR_BLACK)
             else
-                Draw.Text("- Custom PROJECTION", 610, 45, 10, COLOR_BLACK)
+                Graphics.DrawText("- Custom PROJECTION", 610, 45, 10, COLOR_BLACK)
             end
 
-            Draw.Text(Text.Format("- Position: (%06.3, %06.3, %06.3f)", camera.position.x, camera.position.y, camera.position.z), 610, 60, 10, COLOR_BLACK)
-            Draw.Text(Text.Format("- Target: (%06.3, %06.3, %06.3f)", camera.target.x, camera.target.y, camera.target.z), 610, 75, 10, COLOR_BLACK)
-            Draw.Text(Text.Format("- Up: (%06.3, %06.3, %06.3f)", camera.up.x, camera.up.y, camera.up.z), 610, 90, 10, COLOR_BLACK)
+            Graphics.DrawText(Text.Format("- Position: (%06.3, %06.3, %06.3f)", camera.position.x, camera.position.y, camera.position.z), 610, 60, 10, COLOR_BLACK)
+            Graphics.DrawText(Text.Format("- Target: (%06.3, %06.3, %06.3f)", camera.target.x, camera.target.y, camera.target.z), 610, 75, 10, COLOR_BLACK)
+            Graphics.DrawText(Text.Format("- Up: (%06.3, %06.3, %06.3f)", camera.up.x, camera.up.y, camera.up.z), 610, 90, 10, COLOR_BLACK)
 
-        Window.EndDrawing()
+        Graphics.EndDrawing()
 
     end
 

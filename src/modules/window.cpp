@@ -54,16 +54,6 @@ void bind_raylib_window(sol::state& lua) {
     window_namespace.set_function("DisableCursor", DisableCursor);
     window_namespace.set_function("IsCursorOnScreen", IsCursorOnScreen);
 
-    // Modes
-    window_namespace.set_function("BeginDrawing", BeginDrawing);
-    window_namespace.set_function("EndDrawing", EndDrawing);
-    window_namespace.set_function("BeginMode2D", BeginMode2D);
-    window_namespace.set_function("EndMode2D", EndMode2D);
-    window_namespace.set_function("BeginMode3D", BeginMode3D);
-    window_namespace.set_function("EndMode3D", EndMode3D);
-    window_namespace.set_function("BeginScissorMode", BeginScissorMode);
-    window_namespace.set_function("EndScissorMode", EndScissorMode);
-
     // Screen Space
     window_namespace.set_function("GetMouseRay", GetMouseRay);
     window_namespace.set_function("GetCameraMatrix", GetCameraMatrix);

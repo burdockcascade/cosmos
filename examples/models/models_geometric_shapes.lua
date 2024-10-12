@@ -12,25 +12,26 @@ Window.SetTargetFPS(60)
 
 while not Window.ShouldClose() do
 
-    Window.BeginDrawing()
-        Window.ClearBackground(COLOR_RAYWHITE)
-        Window.BeginMode3D(camera)
+    Window.ClearBackground(COLOR_RAYWHITE)
 
+    Graphics.BeginDrawing()
 
-            Draw.Cube(Vector3(-4.0, 0.0, 2.0), 2.0, 2.0, 2.0, COLOR_GOLD)
-            Draw.CubeWires(Vector3(-4.0, 0.0, 2.0), 2.0, 2.0, 2.0, COLOR_MAROON)
+        Graphics.BeginMode3D(camera)
 
-            Draw.Sphere(Vector3(-1.0, 0.0, 2.0), 1.0, COLOR_RED)
-            Draw.SphereWires(Vector3(-1.0, 0.0, 2.0), 1.0, 16, 16, COLOR_MAROON)
+            Graphics.DrawCube(Vector3(-4.0, 0.0, 2.0), 2.0, 2.0, 2.0, COLOR_GOLD)
+            Graphics.DrawCubeWires(Vector3(-4.0, 0.0, 2.0), 2.0, 2.0, 2.0, COLOR_MAROON)
 
-            Draw.Cylinder(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, COLOR_GREEN)
-            Draw.CylinderWires(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, COLOR_LIME)
+            Graphics.DrawSphere(Vector3(-1.0, 0.0, 2.0), 1.0, COLOR_RED)
+            Graphics.DrawSphereWires(Vector3(-1.0, 0.0, 2.0), 1.0, 16, 16, COLOR_MAROON)
 
-            Draw.Grid(10, 1.0)
+            Graphics.DrawCylinder(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, COLOR_GREEN)
+            Graphics.DrawCylinderWires(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, COLOR_LIME)
 
-        Window.EndMode3D()
+            Graphics.DrawGrid(10, 1.0)
 
-    Window.EndDrawing()
+        Graphics.EndMode3D()
+
+    Graphics.EndDrawing()
 end
 
 Window.Close()

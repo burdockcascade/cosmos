@@ -50,37 +50,37 @@ function main(void)
             end
         end
 
-        Window.BeginDrawing();
+        Graphics.BeginDrawing();
 
             Window.ClearBackground(COLOR_RAYWHITE);
 
-            Window.BeginMode3D(camera);
+            Graphics.BeginMode3D(camera);
 
                 if (collision.hit) then
-                    Draw.Cube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, COLOR_RED);
-                    Draw.CubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, COLOR_MAROON);
-                    Draw.CubeWires(cubePosition, cubeSize.x + 0.2, cubeSize.y + 0.2, cubeSize.z + 0.2, COLOR_GREEN);
+                    Graphics.DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, COLOR_RED);
+                    Graphics.DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, COLOR_MAROON);
+                    Graphics.DrawCubeWires(cubePosition, cubeSize.x + 0.2, cubeSize.y + 0.2, cubeSize.z + 0.2, COLOR_GREEN);
                 else
-                    Draw.Cube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, COLOR_GRAY);
-                    Draw.CubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, COLOR_DARKGRAY);
+                    Graphics.DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, COLOR_GRAY);
+                    Graphics.DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, COLOR_DARKGRAY);
                 end
 
-                Draw.Ray(ray, COLOR_MAROON);
-                Draw.Grid(10, 1.0);
+                Graphics.DrawRay(ray, COLOR_MAROON);
+                Graphics.DrawGrid(10, 1.0);
 
             Window.EndMode3D();
 
-            Draw.Text("Try clicking on the box with your mouse!", 240, 10, 20, COLOR_DARKGRAY);
+            Graphics.DrawText("Try clicking on the box with your mouse!", 240, 10, 20, COLOR_DARKGRAY);
 
             if (collision.hit) then
-                Draw.Text("BOX SELECTED", (screenWidth - Text.Measure("BOX SELECTED", 30)) / 2, (screenHeight * 0.1), 30, COLOR_GREEN);
+                Graphics.DrawText("BOX SELECTED", (screenWidth - Text.Measure("BOX SELECTED", 30)) / 2, (screenHeight * 0.1), 30, COLOR_GREEN);
             end
 
-            Draw.Text("Right click mouse to toggle camera controls", 10, 430, 10, COLOR_GRAY);
+            Graphics.DrawText("Right click mouse to toggle camera controls", 10, 430, 10, COLOR_GRAY);
 
-            Draw.FPS(10, 10);
+            Graphics.DrawFPS(10, 10);
 
-        Window.EndDrawing();
+        Graphics.EndDrawing();
 
     end
 

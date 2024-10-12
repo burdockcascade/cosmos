@@ -24,22 +24,22 @@ while not Window.ShouldClose() do
     Window.UpdateCamera(camera, CAMERA_THIRD_PERSON)
     cubeScreenPosition = Window.GetWorldToScreen(Vector3(cubePosition.x, cubePosition.y + 2.5, cubePosition.z), camera)
 
-    Window.BeginDrawing()
+    Window.ClearBackground(COLOR_RAYWHITE)
 
-        Window.ClearBackground(COLOR_RAYWHITE)
+    Graphics.BeginDrawing()
 
-        Window.BeginMode3D(camera)
-            Draw.Cube(cubePosition, 2.0, 2.0, 2.0, COLOR_RED)
-            Draw.CubeWires(cubePosition, 2.0, 2.0, 2.0, COLOR_MAROON)
-            Draw.Grid(10, 1.0)
-        Window.EndMode3D()
+        Graphics.BeginMode3D(camera)
+            Graphics.DrawCube(cubePosition, 2.0, 2.0, 2.0, COLOR_RED)
+            Graphics.DrawCubeWires(cubePosition, 2.0, 2.0, 2.0, COLOR_MAROON)
+            Graphics.DrawGrid(10, 1.0)
+            Graphics.EndMode3D()
 
-        Draw.Text("Enemy: 100 / 100", cubeScreenPosition.x - Text.Measure("Enemy: 100/100", 20)/2, cubeScreenPosition.y, 20, COLOR_BLACK)
+        Graphics.DrawText("Enemy: 100 / 100", cubeScreenPosition.x - Text.Measure("Enemy: 100/100", 20)/2, cubeScreenPosition.y, 20, COLOR_BLACK)
 
-        Draw.Text(Text.Format("Cube position in screen space coordinates: [%i, %i]", cubeScreenPosition.x, cubeScreenPosition.y), 10, 10, 20, COLOR_LIME)
-        Draw.Text("Text 2d should be always on top of the cube", 10, 40, 20, COLOR_GRAY)
+        Graphics.DrawText(Text.Format("Cube position in screen space coordinates: [%i, %i]", cubeScreenPosition.x, cubeScreenPosition.y), 10, 10, 20, COLOR_LIME)
+        Graphics.DrawText("Text 2d should be always on top of the cube", 10, 40, 20, COLOR_GRAY)
 
-    Window.EndDrawing()
+    Graphics.EndDrawing()
 
 end
 

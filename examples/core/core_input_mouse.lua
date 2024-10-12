@@ -23,15 +23,15 @@
         elseif (Input.IsMouseButtonPressed(MOUSE_BUTTON_FORWARD)) then ballColor = COLOR_ORANGE
         elseif (Input.IsMouseButtonPressed(MOUSE_BUTTON_BACK)) then ballColor = COLOR_BEIGE end
 
-        Window.BeginDrawing()
+        Graphics.BeginDrawing()
 
             Window.ClearBackground(COLOR_RAYWHITE)
 
-            Draw.CircleV(ballPosition, 40, ballColor)
+            Graphics.DrawCircleV(ballPosition, 40, ballColor)
 
-            Draw.Text("move ball with mouse and click mouse button to change color", 10, 10, 20, COLOR_DARKGRAY)
+            Graphics.DrawText("move ball with mouse and click mouse button to change color", 10, 10, 20, COLOR_DARKGRAY)
 
-        Window.EndDrawing()
+        Graphics.EndDrawing()
 
     end
 

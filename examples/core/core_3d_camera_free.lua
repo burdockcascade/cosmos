@@ -29,28 +29,28 @@ function main(void)
             camera.target = Vector3( 0.0, 0.0, 0.0 )
         end
 
-        Window.BeginDrawing();
+        Graphics.BeginDrawing();
 
             Window.ClearBackground(COLOR_RAYWHITE);
 
             Window.BeginMode3D(camera);
 
-                Draw.Cube(cubePosition, 2.0, 2.0, 2.0, COLOR_RED);
-                Draw.CubeWires(cubePosition, 2.0, 2.0, 2.0, COLOR_MAROON);
+                Graphics.DrawCube(cubePosition, 2.0, 2.0, 2.0, COLOR_RED);
+                Graphics.DrawCubeWires(cubePosition, 2.0, 2.0, 2.0, COLOR_MAROON);
 
-                Draw.Grid(10, 1.0);
+                Graphics.DrawGrid(10, 1.0);
 
             Window.EndMode3D();
 
-            Draw.Rectangle( 10, 10, 320, 93, Color.Fade(COLOR_SKYBLUE, 0.5));
-            Draw.RectangleLines( 10, 10, 320, 93, COLOR_BLUE);
+            Graphics.DrawRectangle( 10, 10, 320, 93, Color.Fade(COLOR_SKYBLUE, 0.5));
+            Graphics.DrawRectangleLines( 10, 10, 320, 93, COLOR_BLUE);
 
-            Draw.Text("Free camera default controls:", 20, 20, 10, COLOR_BLACK);
-            Draw.Text("- Mouse Wheel to Zoom in-out", 40, 40, 10, COLOR_DARKGRAY);
-            Draw.Text("- Mouse Wheel Pressed to Pan", 40, 60, 10, COLOR_DARKGRAY);
-            Draw.Text("- Z to zoom to (0, 0, 0)", 40, 80, 10, COLOR_DARKGRAY);
+            Graphics.DrawText("Free camera default controls:", 20, 20, 10, COLOR_BLACK);
+            Graphics.DrawText("- Mouse Wheel to Zoom in-out", 40, 40, 10, COLOR_DARKGRAY);
+            Graphics.DrawText("- Mouse Wheel Pressed to Pan", 40, 60, 10, COLOR_DARKGRAY);
+            Graphics.DrawText("- Z to zoom to (0, 0, 0)", 40, 80, 10, COLOR_DARKGRAY);
 
-        Window.EndDrawing();
+        Graphics.EndDrawing();
     end
 
     Winxow.Close()
