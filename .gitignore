@@ -11,3 +11,5 @@ build/
 # CMake
 cmake-build-debug/
 CMakeLists.txt
+
+.cache

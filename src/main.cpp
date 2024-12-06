@@ -29,6 +29,7 @@ int main(const int argc, char* argv[]) {
     lua.open_libraries(
         sol::lib::base,
         sol::lib::table,
+        sol::lib::string,
         sol::lib::coroutine,
         sol::lib::utf8
     ); 

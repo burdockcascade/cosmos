@@ -1,7 +1,9 @@
 #include <sol/sol.hpp>
 #include <raylib.h>
 
-void bind_graphics(sol::state& lua) {
+#include "binding_util.hpp"
+
+void bind_graphic_structs(sol::state& lua) {
 
     // Texture2D
     lua.new_usertype<Texture2D>("Texture2D",
@@ -13,11 +15,96 @@ void bind_graphics(sol::state& lua) {
         "height", &Texture2D::height,
         "mipmaps", &Texture2D::mipmaps,
         "format", &Texture2D::format,
-        "Unload", &UnloadTexture
+        "FromImage", &LoadTextureFromImage
     );
+
+    // Model
+    lua.new_usertype<Model>("Model",
+        sol::call_constructor, [](const std::string& filename) {
+            return LoadModel(filename.c_str());
+        },
+        "meshCount", &Model::meshCount,
+        "materialCount", &Model::materialCount,
+        "transform", &Model::transform,
+        "meshes", &Model::meshes,
+        "materials", &Model::materials,
+        "meshMaterial", &Model::meshMaterial,
+        "IsReady", &IsModelValid,
+        "FromMesh", &LoadModelFromMesh,
+        "GetMaterial", [](Model& model, int index) {
+            if (index >= 0 && index < model.materialCount) {
+                return &model.materials[index];
+            }
+            return static_cast<Material*>(nullptr);
+        }
+    );
+
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_ALBEDO);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_METALNESS);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_NORMAL);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_ROUGHNESS);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_OCCLUSION);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_EMISSION);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_HEIGHT);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_CUBEMAP);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_IRRADIANCE);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_PREFILTER);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_BRDF);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_DIFFUSE);
+    SET_GLOBAL_CONSTANT(MATERIAL_MAP_SPECULAR);
+
+
+    // Mesh
+    lua.new_usertype<Mesh>("Mesh",
+        "vertexCount", &Mesh::vertexCount,
+        "triangleCount", &Mesh::triangleCount,
+        "vertices", &Mesh::vertices,
+        "texcoords", &Mesh::texcoords,
+        "normals", &Mesh::normals,
+        "tangents", &Mesh::tangents,
+        "colors", &Mesh::colors,
+        "texcoords2", &Mesh::texcoords2,
+        "indices", &Mesh::indices,
+        "vaoId", &Mesh::vaoId,
+        "vboId", &Mesh::vboId,
+        "FromHeightmap", &GenMeshHeightmap
+    );
+
+    // Material
+    lua.new_usertype<Material>("Material",
+        sol::call_constructor, sol::factories(
+            []() {
+                return LoadMaterialDefault();
+            },
+            [](Shader shader) {
+                return Material{shader};
+            }
+        ),
+        "shader", &Material::shader,
+        "maps", &Material::maps,
+        "params", &Material::params,
+        "GetMap", [](Material& material, int type) {
+            return &material.maps[type];
+        }
+    );
+
+    // MaterialMap
+    lua.new_usertype<MaterialMap>("MaterialMap",
+        "texture", &MaterialMap::texture,
+        "color", &MaterialMap::color,
+        "value", &MaterialMap::value
+    );
+
+}
+
+void bind_graphic_functions(sol::state& lua) {
 
     // Namespace for drawing functions
     sol::table graphics = lua.create_named_table("Graphics");
+
+    graphics.set_function("LoadModelFromMesh", LoadModelFromMesh);
+
+    // == 2D Shapes ==
 
     // Texture
     graphics.set_function("SetShapesTexture", SetShapesTexture);
@@ -89,6 +176,8 @@ void bind_graphics(sol::state& lua) {
     graphics.set_function("DrawPolyLines", DrawPolyLines);
     graphics.set_function("DrawPolyLinesEx", DrawPolyLinesEx);
 
+    // == 3D Shapes ==
+
     // Plane
     graphics.set_function("DrawPlane", DrawPlane);
 
@@ -99,11 +188,18 @@ void bind_graphics(sol::state& lua) {
     // Grid
     graphics.set_function("DrawGrid", DrawGrid);
 
+    // Lines
+    graphics.set_function("DrawLine3D", DrawLine3D);
+
+    // Points
+    graphics.set_function("DrawPoint3D", DrawPoint3D);
+
     // Ray
     graphics.set_function("DrawRay", DrawRay);
 
     // Sphere
     graphics.set_function("DrawSphere", DrawSphere);
+    graphics.set_function("DrawSphereEx", DrawSphereEx);
     graphics.set_function("DrawSphereWires", DrawSphereWires);
 
     // Cylinder
@@ -114,4 +210,15 @@ void bind_graphics(sol::state& lua) {
     graphics.set_function("DrawCapsule", DrawCapsule);
     graphics.set_function("DrawCapsuleWires", DrawCapsuleWires);
 
+    // Model
+    graphics.set_function("DrawModel", DrawModel);
+    graphics.set_function("DrawModelEx", DrawModelEx);
+    graphics.set_function("DrawModelWires", DrawModelWires);
+    graphics.set_function("DrawModelWiresEx", DrawModelWiresEx);
+
+}
+
+void bind_graphics(sol::state& lua) {
+    bind_graphic_structs(lua);
+    bind_graphic_functions(lua);
 }

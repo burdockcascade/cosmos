@@ -54,8 +54,8 @@ function main(void)
             end
 
             Graphics.DrawRectangle(0, 0, screenWidth, 40, COLOR_BLACK)
-            Graphics.DrawText(Text.Format("bunnies: %i", #bunnies), 120, 10, 20, COLOR_GREEN) -- fixme: numbers are not working
-            Graphics.DrawText(Text.Format("batched draw calls: %i", 1 + #bunnies/MAX_BATCH_ELEMENTS), 320, 10, 20, COLOR_MAROON)
+            Graphics.DrawText(string.format("bunnies: %i", #bunnies), 120, 10, 20, COLOR_GREEN) -- fixme: numbers are not working
+            Graphics.DrawText(string.format("batched draw calls: %f", 1 + #bunnies/MAX_BATCH_ELEMENTS), 320, 10, 20, COLOR_MAROON)
 
             Graphics.DrawFPS(10, 10)
 

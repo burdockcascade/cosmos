@@ -1,6 +1,5 @@
 Window.Init(800, 600, "Geometric Shapes")
 
--- Camera
 local camera = Camera3D()
 camera.position = Vector3(0.0, 10.0, 10.0)
 camera.target = Vector3(0.0, 0.0, 0.0)
