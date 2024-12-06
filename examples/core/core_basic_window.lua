@@ -8,9 +8,9 @@ function main()
 
     while not Window.ShouldClose() do
         Window.ClearBackground(COLOR_RAYWHITE)
-        Graphics.DrawBeginDrawing()
+        Graphics.BeginDrawing()
             Graphics.DrawText("Congrats! You created your first window!", 190, 200, 20, COLOR_DARKGRAY)
-        Graphics.DrawEndDrawing()
+        Graphics.EndDrawing()
     end
 
     Window.Close()
