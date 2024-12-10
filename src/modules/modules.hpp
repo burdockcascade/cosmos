@@ -2,9 +2,13 @@
 
 #include <sol/sol.hpp>
 
+#define SET_GLOBAL_CONSTANT(name) \
+    lua[#name] = name
+
 // These are split into separate files for organization and speed of compilation
 
 void bind_raylib_structs(sol::state& lua);
+void bind_raylib_color(sol::state& lua);
 void bind_graphics(sol::state& lua);
 void bind_image(sol::state& lua);
 void bind_raylib_window(sol::state& lua);
@@ -13,15 +17,3 @@ void bind_raylib_text(sol::state& lua);
 void bind_math(sol::state& lua);
 void bind_raylib_collision(sol::state& lua);
 void bind_camera(sol::state& lua);
-
-void bind_raylib(sol::state& lua) {
-    bind_raylib_structs(lua);
-    bind_graphics(lua);
-    bind_image(lua);
-    bind_raylib_window(lua);
-    bind_raylib_input(lua);
-    bind_raylib_text(lua);
-    bind_math(lua);
-    bind_raylib_collision(lua);
-    bind_camera(lua);
-}

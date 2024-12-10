@@ -34,7 +34,17 @@ int main(const int argc, char* argv[]) {
         sol::lib::utf8
     ); 
 
-    bind_raylib(lua);
+    // bind modules
+    bind_raylib_structs(lua);
+    bind_raylib_color(lua);
+    bind_graphics(lua);
+    bind_image(lua);
+    bind_raylib_window(lua);
+    bind_raylib_input(lua);
+    bind_raylib_text(lua);
+    bind_math(lua);
+    bind_raylib_collision(lua);
+    bind_camera(lua);
 
     // load file
     sol::load_result result = lua.load_file(fileToLoad);

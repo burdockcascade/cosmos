@@ -1,7 +1,6 @@
 #include <sol/sol.hpp>
 #include <raylib.h>
-
-#include "binding_util.hpp"
+#include "modules.hpp"
 
 void bind_raylib_input(sol::state& lua) {
 

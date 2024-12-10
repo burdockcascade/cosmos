@@ -29,7 +29,7 @@ while not Window.ShouldClose() do
         Graphics.DrawText("Move the mouse around to reveal this text!", 190, 200, 20, COLOR_LIGHTGRAY)
 
         if (scissorMode) then
-            Window.EndScissorMode()
+            Graphics.EndScissorMode()
         end
 
         Graphics.DrawRectangleLinesEx(scissorArea, 1, COLOR_BLACK)

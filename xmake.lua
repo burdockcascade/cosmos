@@ -3,7 +3,7 @@ set_version("0.1.0")
 
 set_languages("cxx20")
 
-add_requires("raylib 5.5", "sol2 3.3.0", "cxxopts")
+add_requires("raylib 5.5", "sol2 3.3.0")
 add_rules("mode.debug", "mode.release")
 
 target("cosmos")

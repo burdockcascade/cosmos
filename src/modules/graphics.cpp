@@ -1,7 +1,6 @@
 #include <sol/sol.hpp>
 #include <raylib.h>
-
-#include "binding_util.hpp"
+#include "modules.hpp"
 
 void bind_graphic_structs(sol::state& lua) {
 
@@ -29,7 +28,7 @@ void bind_graphic_structs(sol::state& lua) {
         "meshes", &Model::meshes,
         "materials", &Model::materials,
         "meshMaterial", &Model::meshMaterial,
-        "IsReady", &IsModelValid,
+        "IsValid", &IsModelValid,
         "FromMesh", &LoadModelFromMesh,
         "GetMaterial", [](Model& model, int index) {
             if (index >= 0 && index < model.materialCount) {
