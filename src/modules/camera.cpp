@@ -1,6 +1,5 @@
 #include <sol/sol.hpp>
 #include <raylib.h>
-#include "modules.hpp"
 
 void bind_camera(sol::state& lua) {
 
@@ -44,14 +43,14 @@ void bind_camera(sol::state& lua) {
     );
 
     // Camera Mode
-    SET_GLOBAL_CONSTANT(CAMERA_CUSTOM);
-    SET_GLOBAL_CONSTANT(CAMERA_FREE);
-    SET_GLOBAL_CONSTANT(CAMERA_ORBITAL);
-    SET_GLOBAL_CONSTANT(CAMERA_FIRST_PERSON);
-    SET_GLOBAL_CONSTANT(CAMERA_THIRD_PERSON);
+    lua["CAMERA_CUSTOM"] = CAMERA_CUSTOM;
+    lua["CAMERA_FREE"] = CAMERA_FREE;
+    lua["CAMERA_ORBITAL"] = CAMERA_ORBITAL;
+    lua["CAMERA_FIRST_PERSON"] = CAMERA_FIRST_PERSON;
+    lua["CAMERA_THIRD_PERSON"] = CAMERA_THIRD_PERSON;
 
     // Camera Projection
-    SET_GLOBAL_CONSTANT(CAMERA_PERSPECTIVE);
-    SET_GLOBAL_CONSTANT(CAMERA_ORTHOGRAPHIC);
+    lua["CAMERA_PERSPECTIVE"] = CAMERA_PERSPECTIVE;
+    lua["CAMERA_ORTHOGRAPHIC"] = CAMERA_ORTHOGRAPHIC;
 
 }

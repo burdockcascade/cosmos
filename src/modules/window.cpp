@@ -4,17 +4,44 @@
 void bind_raylib_window(sol::state& lua) {
 
     // Window Namespace
+    // @class Window
     sol::table window_namespace = lua.create_named_table("Window");
 
-    // Lifecycle
+    // === Lifecycle ===
+
+    // @name Init
+    // @brief Initialize window and OpenGL context
+    // @param string title Window title
+    // @param int width Window width
+    // @param int height Window height
     window_namespace.set_function("Init", InitWindow);
+
+    // @name Close
+    // @brief Close window and unload OpenGL context
     window_namespace.set_function("Close", CloseWindow);
+
+    // @name ClearBackground
+    // @brief Clear window background with a color
+    // @param Color color Background color
     window_namespace.set_function("ClearBackground", ClearBackground);
+
+    // @name ShouldClose
+    // @brief Check if KEY_ESCAPE pressed or Close icon pressed
+    // @return bool Returns true if window close button pressed or escape key pressed
     window_namespace.set_function("ShouldClose", WindowShouldClose);
+
+    // @name SetTargetFPS
+    // @brief Set target FPS (maximum)
+    // @param int fps Desired number of frames per second
     window_namespace.set_function("SetTargetFPS", SetTargetFPS);
+
+    // @name SetExitKey
+    // @brief Set exit key (default is ESC)
+    // @param int key Desired key to exit program
     window_namespace.set_function("SetExitKey", SetExitKey);
 
-    // State
+    // === State ===
+
     window_namespace.set_function("IsReady", IsWindowReady);
     window_namespace.set_function("IsFullscreen", IsWindowFullscreen);
     window_namespace.set_function("IsHidden", IsWindowHidden);

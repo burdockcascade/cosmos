@@ -10,9 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Installation
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
+        run: sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
       - uses: actions/checkout@v4
       - uses: xmake-io/github-action-setup-xmake@v1
         with:
@@ -28,5 +26,7 @@ jobs:
       - uses: xmake-io/github-action-setup-xmake@v1
         with:
           xmake-version: latest
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: 'windows-xmake-cache'
       - name: Build
         run: xmake -y
