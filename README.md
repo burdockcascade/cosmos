@@ -21,3 +21,7 @@ end
 
 Window.Close()
 ```
+
+## Dependencies
+- [raylib](https://github.com/raysan5/raylib)
+- [sol2](https://github.com/ThePhD/sol2)
